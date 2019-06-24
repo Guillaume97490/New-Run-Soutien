@@ -23,17 +23,17 @@ class CreateUsersTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->unsignedInteger('roles_id');
+            $table->unsignedInteger('role_id');
             $table->string('nom', 45);
             $table->string('prenom', 45);
             $table->string('phone', 45);
-            $table->string('email', 45);
+            $table->string('email', 45)->unique();
             $table->string('password', 60);
 
-            $table->index(["roles_id"], 'fk_users_roles_idx');
+            $table->index(["role_id"], 'fk_users_role_idx');
 
 
-            $table->foreign('roles_id', 'fk_users_roles_idx')
+            $table->foreign('role_id', 'fk_users_role_idx')
                 ->references('id')->on('roles')
                 ->onDelete('no action')
                 ->onUpdate('no action');
