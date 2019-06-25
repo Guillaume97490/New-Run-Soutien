@@ -15,5 +15,6 @@
     </li>
     @endforeach
 </ul>
+<a href="/listusers/create">Ajouter</a>
 
 
