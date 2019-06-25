@@ -47,7 +47,7 @@ class UsersTableSeeder extends Seeder
         $firstName = $faker->firstName;
         $email = strtolower(mb_substr($lastName, 0, 1, "UTF-8") . // en minuscule et premiere lettre
                     mb_substr($firstName, 0, 1, "UTF-8") .
-                    rand(1,999) . 'gmail.com');
+                    rand(1,999) . '@gmail.com');
 
         $user=new User;
         $user->role_id = $i < 3 ? '2' : '3';
