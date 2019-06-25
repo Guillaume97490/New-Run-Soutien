@@ -54,7 +54,7 @@ class UsersController extends Controller
     {
         $user=new User;
         // role_id = 2 correspond au rôle Professeur
-        $user->role_id = '3';
+        $user->role_id = '2';
         $user->nom = $request->nom;
         $user->prenom = $request->prenom;
         $user->phone = $request->phone;

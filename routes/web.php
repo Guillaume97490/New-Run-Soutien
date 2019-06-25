@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('listusers', 'UsersController');
+Route::resource('listusers', 'UsersController')->except('show');
 
 
 

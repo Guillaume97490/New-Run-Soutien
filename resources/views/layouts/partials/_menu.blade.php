@@ -28,7 +28,7 @@
 
 
                     <li class="nav-item">
-                        {{-- <a class="nav-link {{ set_active_route('listusers')}}" href="{{ route('listusers') }}">Les utilisateurs</a> --}}
+                        <a class="nav-link {{ set_active_route('listusers.index')}}" href="{{ route('listusers.index') }}">Les utilisateurs</a>
                     </li>
 
                     <li class="nav-item">
@@ -41,7 +41,7 @@
                     </li>
 
                     <li class="nav-item">
-                        {{-- <a class="nav-link {{ set_active_route('professeur-create')}}" href="{{ route('professeur-create') }}">Ajouter un professeur</a> --}}
+                        <a class="nav-link {{ set_active_route('listusers.create')}}" href="{{ route('listusers.create') }}">Ajouter un professeur</a>
                     </li>
                 @endif
 
