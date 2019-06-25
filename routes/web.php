@@ -17,8 +17,12 @@ Route::get('/', function () {
 
 Route::resource('listusers', 'UsersController');
 
-// Route::resource('listusers/{id}/edit', 'UsersController');
 
 
 
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

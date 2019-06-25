@@ -6,8 +6,16 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Role;
 
+
 class UsersController extends Controller
 {
+        public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->userId= Auth::user()->id;
+            return $next($request);
+        });
+    }
 
 
 
@@ -79,11 +87,13 @@ class UsersController extends Controller
     public function edit($id)
     {
 
-        $authId = Auth::id();
+        $authId = $this->userId;
         $roles = Role::get();
         $user = User::where('id', $id)->first();
 
         return view('formedituser', ['user' => $user, 'authId' => $authId, 'roles' => $roles]);
+        // return view('formedituser', ['user' => $user, 'roles' => $roles]);
+
     }
 
     /**

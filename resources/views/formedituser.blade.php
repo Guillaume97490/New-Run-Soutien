@@ -58,12 +58,13 @@
         @endif
 
         @php
-         $roleid = $user->role_id;
-         $userid = $user->id;
+         $roleId = $user->role_id;
+         $userId = $user->id;
+
         @endphp
 
-        @if ($authId !== $userid)
-            {{-- @if ($authId !== $userid) --}}
+        @if ($authId !== $userId)
+            <!-- {{-- @if ($authId !== $userId) --}} -->
                 <div class="form-group">
                     <label for="role"> Role : </label>
                     <select name="role" class="browser-default custom-select" style="width: 250px">
@@ -78,10 +79,10 @@
                         <strong class="text-danger">{{ $errors->first('role') }}</strong>
                     </span>
                 @endif
-            {{-- @endif --}}
+            <!-- {{-- @endif --}} -->
         @endif
 
-        @if ($authId == $userid)
+        @if ($authId == $userId)
                     <input type="hidden" name="role" value=<?php echo $user->role_id; ?>>
         @endif
 
