@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.layout')
+@section('contentWelcome')
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,89 +12,121 @@
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
+            .slider{
+                height: 33vh;
+            }
+            .logo{
+                max-width: 15vw;
+            }
+            .card-body{
+                box-shadow: #0000002e 0px 0px 18px;
+            }
+            hr {
+                margin-top: 3rem;
+                margin-bottom: 1rem;
+                border: 0;
+                border-top: 1px solid rgb(242, 157, 22);
+                max-width: 29vw;
             }
 
-            .full-height {
-                height: 100vh;
+            @media screen and (max-width: 640px) {
+
+            .slider{
+                height: initial;
             }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+}
 
-            .position-ref {
-                position: relative;
-            }
+}
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
+}
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+
+
+                {{-- SLIDER --}}
+                <div class="container-flex d-flex justify-content-center slider">
+                    <ul class="rslides">
+                        <li><img src="/img/slide1a.jpg" alt="slide 1"></li>
+                        <li><img src="/img/slide2.jpg" alt="slide 2"></li>
+                        <li><img src="/img/slide3.jpg" alt="slide 3"></li>
+                    </ul>
+
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+
+
+                {{-- NOTIFICATIONS --}}
+                <div class="flex-center position-ref full-height">
+                        <div class="container-flex mt-5">
+                            {{-- <br /> --}}
+                            {{-- <div class="container-fluid mt-5">
+                                @if(session()->has('notification.message'))
+                                    <div class="alert alert-{{ session('notification.type')}}"">
+                                        {{ session('notification.message') }}
+                                    </div>
+                                @endif
+
+                            </div> --}}
+
+                        </div>
                 </div>
-            </div>
-        </div>
-    </body>
-</html>
+
+
+
+
+                {{-- LOGO --}}
+                <hr>
+                <div class="mt-5">
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <img class="logo" src="/img/logo2.png" alt="">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="text-center">
+                            <h1 class="mt-0"><span class="text-orange">Run</span> <span class="text-black">Soutien</span></h1>
+                            <p class="text-orange h5"> <span class="text-black">Centre de</span> remise à niveau</p>
+                        </div>
+                    </div>
+
+                </div>
+                <hr>
+
+                {{-- PRESENTATIONS --}}
+                <div class="container mt-5 card border-0 card-body bg-black">
+                    <span class="h3 text-center d-block mt-3 text-orange">Objectifs de la remise à niveau</span>
+                    <p class="text-white">Nos sessions de remise à niveau concernent les adultes souhaitant préparer un concours ou se remettre à niveau dans le cadre professionnel ou personnel.<br>
+                    N'hésitez pas à prendre contact avec nous pour plus d'informations.</p>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @endsection

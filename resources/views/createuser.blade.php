@@ -1,3 +1,7 @@
+@extends('layouts.layout')
+@section('content')
+
+
 <form action="/listusers" method="POST">
     @csrf
         <div class="form-group">
@@ -57,3 +61,5 @@
 
         <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
+
+@endsection

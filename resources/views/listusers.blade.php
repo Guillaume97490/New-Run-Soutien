@@ -1,3 +1,6 @@
+ @extends('layouts.layout')
+ @section('content')
+
 
 <ul>
     @foreach ($users as $user)
@@ -17,4 +20,5 @@
 </ul>
 <a href="/listusers/create">Ajouter</a>
 
+@endsection
 
