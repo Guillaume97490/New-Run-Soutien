@@ -1,11 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\User;
+use App\Role;
 
 class UsersController extends Controller
 {
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,11 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+
+
+        $users = User::orderBy('id')->get();
+
+        return view('listusers',['users' => $users]);
     }
 
     /**
@@ -56,7 +66,12 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $authId = Auth::id();
+        $roles = Role::get();
+        $user = User::where('id', $id)->first();
+
+        return view('formedituser', ['user' => $user, 'authId' => $authId, 'roles' => $roles]);
     }
 
     /**
@@ -68,7 +83,15 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        User::where('id',$id)->update(['nom'=>$request->nom,
+                                        'prenom'=>$request->prenom,
+                                        'phone'=>$request->phone,
+                                        'email'=>$request->email,
+                                        'password'=>$request->password,
+                                        'role_id'=>$request->role,
+                                        ]);
+
+        return redirect()->action('UsersController@index');
     }
 
     /**
@@ -79,6 +102,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id',$id)->delete();
+
+
+        return redirect()->action('UsersController@index');
     }
 }
