@@ -23,7 +23,8 @@ class Cour extends Model
 
     public function sessionsCour()
     {
-        return $this->belongsToMany(User::class, 'cour_user');
+        return $this->belongsToMany('App\User')->withPivot('id', 'date', 'start_time', 'end_time');
+        // return $this->belongsToMany(User::class, 'cour_user');
     }
 
 }

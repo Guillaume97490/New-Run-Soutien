@@ -35,8 +35,8 @@ class CourUserTableSeeder extends Seeder
             'user_id' => rand(6,20),
             'cour_id' => rand(1,6),
             'date' => '2019/07/' . rand(1,31),
-            'start_time' => ($timeDebut > $timeFin) ? $timeFin : $timeDebut,
-            'end_time' =>($timeDebut > $timeFin) ? $timeDebut : $timeFin,
+            'start_time' => $timeDebut,
+            'end_time' =>$timeFin,
             ]
         ];
 

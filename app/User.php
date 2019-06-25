@@ -63,6 +63,7 @@ class User extends Authenticatable
 
     public function sessionsUser()
     {
-        return $this->belongsToMany(Cour::class, 'cour_user');
+        return $this->belongsToMany('App\Cour')->withPivot('id', 'date', 'start_time', 'end_time');
+        // return $this->belongsToMany(Cour::class, 'cour_user');
     }
 }
