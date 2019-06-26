@@ -63,14 +63,14 @@
                 <div class="flex-center position-ref full-height">
                         <div class="container-flex mt-5">
                             {{-- <br /> --}}
-                            {{-- <div class="container-fluid mt-5">
+                            <div class="container-fluid mt-5">
                                 @if(session()->has('notification.message'))
                                     <div class="alert alert-{{ session('notification.type')}}"">
                                         {{ session('notification.message') }}
                                     </div>
                                 @endif
 
-                            </div> --}}
+                            </div>
 
                         </div>
                 </div>
