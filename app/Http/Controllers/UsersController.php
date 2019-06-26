@@ -27,11 +27,11 @@ class UsersController extends Controller
      */
     public function index()
     {
+        $authId = $this->userId;
 
+        $users = User::orderBy('id')->paginate(5);
 
-        $users = User::orderBy('id')->get();
-
-        return view('listusers',['users' => $users]);
+        return view('listusers',['users' => $users, 'authId' => $authId]);
     }
 
     /**
